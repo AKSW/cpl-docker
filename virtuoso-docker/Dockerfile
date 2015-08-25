@@ -12,7 +12,7 @@ RUN apt-get update
 # install some basic packages
 RUN apt-get install -y libldap-2.4-2 libssl1.0.0 unixodbc
 
-ADD virtuoso-minimal_7.2_all.deb \
+COPY virtuoso-minimal_7.2_all.deb \
     virtuoso-opensource-7-bin_7.2_amd64.deb \
     libvirtodbc0_7.2_amd64.deb \
     /
@@ -37,7 +37,9 @@ RUN dpkg -i virtuoso-minimal_7.2_all.deb \
 #            virtuoso-opensource-7_7.2_amd64.deb \
 #            virtuoso-opensource-7-common_7.2_amd64.deb \
 #            virtuoso-server_7.2_all.deb
-ADD virtuoso.ini.dist run.sh /
+COPY virtuoso.ini.dist run.sh /
+
+RUN chmod +x /run.sh
 
 # expose the ODBC and management ports to the outer world
 EXPOSE 1111
