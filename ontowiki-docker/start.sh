@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# execute config script
+chmod +x /config/config-run.sh
+/config/config-run.sh
+
 CONFFILE=/var/www/config.ini
 
 # set Virtuoso password in ontowikis config.ini

@@ -37,6 +37,7 @@ RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enable
 ADD odbc.ini /etc/
 
 # Add startscript and start
+
 ADD start.sh /start.sh
 ADD ow-docker.fig /ow-docker.fig
 
