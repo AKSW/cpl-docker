@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # give php write access to data dir
-chown www-data /var/www/data
+chown www-data /var/www/vocto/data
 
 #cd /var/www/data/
 #ln -s ../models/cpm_2015.n3
@@ -18,7 +18,7 @@ echo "Here is the VocTo...!"
 echo ""
 echo "following log:"
 
-LOG="/var/www/voctologs.log"
+LOG="/var/www/vocto/voctologs.log"
 touch $LOG
 chmod a+w $LOG
 tail -f $LOG

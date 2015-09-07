@@ -19,11 +19,11 @@ RUN apt-get install -y \
 RUN rm -rf /var/www/*
 
 # clone and update vocto
-RUN git clone https://github.com/simeonackermann/VocTo.git /var/www/
-RUN cd /var/www/ && git pull
+RUN git clone https://github.com/simeonackermann/VocTo.git /var/www/vocto/
+RUN cd /var/www/vocto/ && git pull
 
 # replace modificated index.html
-ADD index.html /var/www/index.html
+ADD index.html /var/www/vocto/index.html
 
 # configure vocto for nginx (add php-fpm)
 ADD vocto-nginx.conf /etc/nginx/sites-available/
@@ -32,8 +32,6 @@ RUN ln -s /etc/nginx/sites-available/vocto-nginx.conf /etc/nginx/sites-enabled/
 
 # Add startscript and start
 ADD start.sh /start.sh
-
-# VOLUME /var/www/logs
 
 CMD ["/bin/bash", "/start.sh"]
 
