@@ -24,9 +24,9 @@ RUN dpkg -i libvirtodbc0_7.2_amd64.deb
 RUN rm -rf /var/www/*
 
 # clone ontowiki and get its dependencies
-RUN git clone https://github.com/AKSW/cpl-ontowiki.git -b develop /var/www/
-RUN cd /var/www/ && make deploy
-RUN cp /var/www/config.ini.dist /var/www/config.ini
+RUN git clone https://github.com/AKSW/cpl-ontowiki.git -b develop /var/www/ontowiki/
+RUN cd /var/www/ontowiki/ && make deploy
+RUN cp /var/www/ontowiki/config.ini.dist /var/www/ontowiki/config.ini
 
 # configure the ontowiki site for nginx
 ADD ontowiki-nginx.conf /etc/nginx/sites-available/
@@ -40,7 +40,7 @@ ADD odbc.ini /etc/
 ADD start.sh /start.sh
 ADD ow-docker.fig /ow-docker.fig
 
-VOLUME /var/www/logs
+VOLUME /var/www/ontowiki/logs
 
 CMD ["/bin/bash", "/start.sh"]
 
