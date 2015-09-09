@@ -19,3 +19,10 @@ echo "starting nginx …"
 service nginx start
 
 echo "Here is the VocTo...!"
+echo ""
+echo "following log:"
+
+LOG="/var/www/vocto/voctologs.log"
+touch $LOG
+chmod a+w $LOG
+tail -f $LOG
