@@ -10,4 +10,4 @@ Build the container:
 
 Run it:
 
-	docker run -p 8081:81 vocto
+	docker run -p 8081:80 vocto
