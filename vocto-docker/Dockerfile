@@ -33,4 +33,4 @@ ADD start.sh /start.sh
 CMD ["/bin/bash", "/start.sh"]
 
 # expose the HTTP port to the outer world
-EXPOSE 81
+EXPOSE 80
