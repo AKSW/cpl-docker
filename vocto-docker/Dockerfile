@@ -22,9 +22,6 @@ RUN rm -rf /var/www/*
 RUN git clone https://github.com/simeonackermann/VocTo.git /var/www/vocto/
 RUN cd /var/www/vocto/ && git pull
 
-# replace modificated index.html
-ADD index.html /var/www/vocto/index.html
-
 # configure vocto for nginx (add php-fpm)
 ADD vocto-nginx.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-enabled/default

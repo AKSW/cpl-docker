@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# execute config script
+chmod +x /config/config-run.sh
+/config/config-run.sh
+
 # give php write access to data dir
 chown www-data /var/www/vocto/data
 
@@ -15,10 +19,3 @@ echo "starting nginx …"
 service nginx start
 
 echo "Here is the VocTo...!"
-echo ""
-echo "following log:"
-
-LOG="/var/www/vocto/voctologs.log"
-touch $LOG
-chmod a+w $LOG
-tail -f $LOG
