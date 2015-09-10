@@ -2,19 +2,21 @@
 
 To access phpmyadmin and the d2r server, run with several exposed ports. e.g.:
 
-	docker run -p 8082:80 -p 2020:2020 -i -t d2rq-img
+	docker build -t d2rq-img .
+
+	docker run -p 8082:80 -p 2020:2020 -i -t --name=d2rq-cont d2rq-img
 
 
 To create a sample mapping, access to phpmyadmin (http://localhost:8082/phpmyadmin), create a database and exec into the docker container:
 
-	docker exec -it [ID] bash
+	docker exec -it d2rw-cont bash
 
 
 Change to D2R folder, create the mapping and start the server
 
-	cd /d2...
+	cd /d2rq-0.8.1
 
-	./generate-mapping -o mapping.ttl -u root -p password jdbc:mysql://localhost/[DB-NAME]]
+	./generate-mapping -o mapping.ttl -u root -p password jdbc:mysql://localhost/[DB-NAME]
 
 	./d2r-server mapping.ttl
 

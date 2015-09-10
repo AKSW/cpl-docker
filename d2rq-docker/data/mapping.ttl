@@ -1,0 +1,1416 @@
+@prefix map: <#> .
+@prefix db: <> .
+@prefix vocab: <vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix jdbc: <http://d2rq.org/terms/jdbc/> .
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
+	d2rq:jdbcDSN "jdbc:mysql://localhost/d2rq";
+	d2rq:username "root";
+	d2rq:password "password";
+	jdbc:autoReconnect "true";
+	jdbc:zeroDateTimeBehavior "convertToNull";
+	.
+
+# Table dissertationes
+map:dissertationes a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "dissertationes/@@dissertationes.id@@";
+	d2rq:class vocab:dissertationes;
+	d2rq:classDefinitionLabel "dissertationes";
+	.
+map:dissertationes__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property rdfs:label;
+	d2rq:pattern "dissertationes #@@dissertationes.id@@";
+	.
+map:dissertationes_id_dissertation a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_id_dissertation;
+	d2rq:propertyDefinitionLabel "dissertationes id_dissertation";
+	d2rq:column "dissertationes.id_dissertation";
+	d2rq:datatype xsd:integer;
+	.
+map:dissertationes_pnd_praeses a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_pnd_praeses;
+	d2rq:propertyDefinitionLabel "dissertationes pnd_praeses";
+	d2rq:column "dissertationes.pnd_praeses";
+	d2rq:datatype xsd:integer;
+	.
+map:dissertationes_pnd_respondent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_pnd_respondent;
+	d2rq:propertyDefinitionLabel "dissertationes pnd_respondent";
+	d2rq:column "dissertationes.pnd_respondent";
+	d2rq:datatype xsd:integer;
+	.
+map:dissertationes_pnd_drucker a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_pnd_drucker;
+	d2rq:propertyDefinitionLabel "dissertationes pnd_drucker";
+	d2rq:column "dissertationes.pnd_drucker";
+	d2rq:datatype xsd:integer;
+	.
+map:dissertationes_pnd_widmungsempfaenger a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_pnd_widmungsempfaenger;
+	d2rq:propertyDefinitionLabel "dissertationes pnd_widmungsempfaenger";
+	d2rq:column "dissertationes.pnd_widmungsempfaenger";
+	.
+map:dissertationes_pnd_gratulant a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_pnd_gratulant;
+	d2rq:propertyDefinitionLabel "dissertationes pnd_gratulant";
+	d2rq:column "dissertationes.pnd_gratulant";
+	.
+map:dissertationes_pnd_opponent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_pnd_opponent;
+	d2rq:propertyDefinitionLabel "dissertationes pnd_opponent";
+	d2rq:column "dissertationes.pnd_opponent";
+	.
+map:dissertationes_titel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_titel;
+	d2rq:propertyDefinitionLabel "dissertationes titel";
+	d2rq:column "dissertationes.titel";
+	.
+map:dissertationes_art a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_art;
+	d2rq:propertyDefinitionLabel "dissertationes art";
+	d2rq:column "dissertationes.art";
+	.
+map:dissertationes_fakultaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_fakultaet;
+	d2rq:propertyDefinitionLabel "dissertationes fakultaet";
+	d2rq:column "dissertationes.fakultaet";
+	.
+map:dissertationes_umfang a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_umfang;
+	d2rq:propertyDefinitionLabel "dissertationes umfang";
+	d2rq:column "dissertationes.umfang";
+	.
+map:dissertationes_textteil a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_textteil;
+	d2rq:propertyDefinitionLabel "dissertationes textteil";
+	d2rq:column "dissertationes.textteil";
+	.
+map:dissertationes_ort a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_ort;
+	d2rq:propertyDefinitionLabel "dissertationes ort";
+	d2rq:column "dissertationes.ort";
+	.
+map:dissertationes_zeit a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_zeit;
+	d2rq:propertyDefinitionLabel "dissertationes zeit";
+	d2rq:column "dissertationes.zeit";
+	.
+map:dissertationes_datum a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_datum;
+	d2rq:propertyDefinitionLabel "dissertationes datum";
+	d2rq:column "dissertationes.datum";
+	.
+map:dissertationes_zuordnung a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_zuordnung;
+	d2rq:propertyDefinitionLabel "dissertationes zuordnung";
+	d2rq:column "dissertationes.zuordnung";
+	.
+map:dissertationes_schlagwort a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_schlagwort;
+	d2rq:propertyDefinitionLabel "dissertationes schlagwort";
+	d2rq:column "dissertationes.schlagwort";
+	.
+map:dissertationes_serie a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_serie;
+	d2rq:propertyDefinitionLabel "dissertationes serie";
+	d2rq:column "dissertationes.serie";
+	.
+map:dissertationes_vd16 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_vd16;
+	d2rq:propertyDefinitionLabel "dissertationes vd16";
+	d2rq:column "dissertationes.vd16";
+	.
+map:dissertationes_vd17 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_vd17;
+	d2rq:propertyDefinitionLabel "dissertationes vd17";
+	d2rq:column "dissertationes.vd17";
+	.
+map:dissertationes_nachweis a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_nachweis;
+	d2rq:propertyDefinitionLabel "dissertationes nachweis";
+	d2rq:column "dissertationes.nachweis";
+	.
+map:dissertationes_benutztes_exemplar a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_benutztes_exemplar;
+	d2rq:propertyDefinitionLabel "dissertationes benutztes_exemplar";
+	d2rq:column "dissertationes.benutztes_exemplar";
+	.
+map:dissertationes_nachweis_wf a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_nachweis_wf;
+	d2rq:propertyDefinitionLabel "dissertationes nachweis_wf";
+	d2rq:column "dissertationes.nachweis_wf";
+	.
+map:dissertationes_katalog a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_katalog;
+	d2rq:propertyDefinitionLabel "dissertationes katalog";
+	d2rq:column "dissertationes.katalog";
+	.
+map:dissertationes_opac a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_opac;
+	d2rq:propertyDefinitionLabel "dissertationes opac";
+	d2rq:column "dissertationes.opac";
+	.
+map:dissertationes_sonstiges a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_sonstiges;
+	d2rq:propertyDefinitionLabel "dissertationes sonstiges";
+	d2rq:column "dissertationes.sonstiges";
+	.
+map:dissertationes_zitate a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_zitate;
+	d2rq:propertyDefinitionLabel "dissertationes zitate";
+	d2rq:column "dissertationes.zitate";
+	.
+map:dissertationes_Name_prae a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_Name_prae;
+	d2rq:propertyDefinitionLabel "dissertationes Name_prae";
+	d2rq:column "dissertationes.Name_prae";
+	.
+map:dissertationes_Vorname_prae a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_Vorname_prae;
+	d2rq:propertyDefinitionLabel "dissertationes Vorname_prae";
+	d2rq:column "dissertationes.Vorname_prae";
+	.
+map:dissertationes_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_id;
+	d2rq:propertyDefinitionLabel "dissertationes id";
+	d2rq:column "dissertationes.id";
+	d2rq:datatype xsd:integer;
+	.
+map:dissertationes_digi a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_digi;
+	d2rq:propertyDefinitionLabel "dissertationes digi";
+	d2rq:column "dissertationes.digi";
+	.
+map:dissertationes_ppn a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:dissertationes;
+	d2rq:property vocab:dissertationes_ppn;
+	d2rq:propertyDefinitionLabel "dissertationes ppn";
+	d2rq:column "dissertationes.ppn";
+	.
+
+# Table lehrveranstaltungen
+map:lehrveranstaltungen a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "lehrveranstaltungen/@@lehrveranstaltungen.id@@/@@lehrveranstaltungen.id_semester|urlify@@/@@lehrveranstaltungen.id_veranstaltung|urlify@@/@@lehrveranstaltungen.pnd_dozent@@";
+	d2rq:class vocab:lehrveranstaltungen;
+	d2rq:classDefinitionLabel "lehrveranstaltungen";
+	.
+map:lehrveranstaltungen__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property rdfs:label;
+	d2rq:pattern "lehrveranstaltungen #@@lehrveranstaltungen.id@@/@@lehrveranstaltungen.id_semester@@/@@lehrveranstaltungen.id_veranstaltung@@/@@lehrveranstaltungen.pnd_dozent@@";
+	.
+map:lehrveranstaltungen_id_semester a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_id_semester;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen id_semester";
+	d2rq:column "lehrveranstaltungen.id_semester";
+	.
+map:lehrveranstaltungen_id_veranstaltung a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_id_veranstaltung;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen id_veranstaltung";
+	d2rq:column "lehrveranstaltungen.id_veranstaltung";
+	.
+map:lehrveranstaltungen_pnd_dozent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_pnd_dozent;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen pnd_dozent";
+	d2rq:column "lehrveranstaltungen.pnd_dozent";
+	d2rq:datatype xsd:integer;
+	.
+map:lehrveranstaltungen_titel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_titel;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen titel";
+	d2rq:column "lehrveranstaltungen.titel";
+	.
+map:lehrveranstaltungen_ort a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_ort;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen ort";
+	d2rq:column "lehrveranstaltungen.ort";
+	.
+map:lehrveranstaltungen_zeit a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_zeit;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen zeit";
+	d2rq:column "lehrveranstaltungen.zeit";
+	.
+map:lehrveranstaltungen_wochentag a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_wochentag;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen wochentag";
+	d2rq:column "lehrveranstaltungen.wochentag";
+	.
+map:lehrveranstaltungen_fakultaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_fakultaet;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen fakultaet";
+	d2rq:column "lehrveranstaltungen.fakultaet";
+	.
+map:lehrveranstaltungen_veranstaltungstyp a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_veranstaltungstyp;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen veranstaltungstyp";
+	d2rq:column "lehrveranstaltungen.veranstaltungstyp";
+	.
+map:lehrveranstaltungen_materialientyp a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_materialientyp;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen materialientyp";
+	d2rq:column "lehrveranstaltungen.materialientyp";
+	.
+map:lehrveranstaltungen_materialname a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_materialname;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen materialname";
+	d2rq:column "lehrveranstaltungen.materialname";
+	.
+map:lehrveranstaltungen_id_werk a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_id_werk;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen id_werk";
+	d2rq:column "lehrveranstaltungen.id_werk";
+	.
+map:lehrveranstaltungen_sonstiges a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_sonstiges;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen sonstiges";
+	d2rq:column "lehrveranstaltungen.sonstiges";
+	.
+map:lehrveranstaltungen_digi a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_digi;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen digi";
+	d2rq:column "lehrveranstaltungen.digi";
+	.
+map:lehrveranstaltungen_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen;
+	d2rq:property vocab:lehrveranstaltungen_id;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen id";
+	d2rq:column "lehrveranstaltungen.id";
+	d2rq:datatype xsd:integer;
+	.
+
+# Table lehrveranstaltungen_dt
+map:lehrveranstaltungen_dt a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "lehrveranstaltungen_dt/@@lehrveranstaltungen_dt.id@@/@@lehrveranstaltungen_dt.id_semester|urlify@@/@@lehrveranstaltungen_dt.id_veranstaltung|urlify@@/@@lehrveranstaltungen_dt.pnd_dozent@@";
+	d2rq:class vocab:lehrveranstaltungen_dt;
+	d2rq:classDefinitionLabel "lehrveranstaltungen_dt";
+	.
+map:lehrveranstaltungen_dt__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property rdfs:label;
+	d2rq:pattern "lehrveranstaltungen_dt #@@lehrveranstaltungen_dt.id@@/@@lehrveranstaltungen_dt.id_semester@@/@@lehrveranstaltungen_dt.id_veranstaltung@@/@@lehrveranstaltungen_dt.pnd_dozent@@";
+	.
+map:lehrveranstaltungen_dt_id_semester a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_id_semester;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt id_semester";
+	d2rq:column "lehrveranstaltungen_dt.id_semester";
+	.
+map:lehrveranstaltungen_dt_id_veranstaltung a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_id_veranstaltung;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt id_veranstaltung";
+	d2rq:column "lehrveranstaltungen_dt.id_veranstaltung";
+	.
+map:lehrveranstaltungen_dt_pnd_dozent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_pnd_dozent;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt pnd_dozent";
+	d2rq:column "lehrveranstaltungen_dt.pnd_dozent";
+	d2rq:datatype xsd:integer;
+	.
+map:lehrveranstaltungen_dt_titel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_titel;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt titel";
+	d2rq:column "lehrveranstaltungen_dt.titel";
+	.
+map:lehrveranstaltungen_dt_ort a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_ort;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt ort";
+	d2rq:column "lehrveranstaltungen_dt.ort";
+	.
+map:lehrveranstaltungen_dt_zeit a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_zeit;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt zeit";
+	d2rq:column "lehrveranstaltungen_dt.zeit";
+	.
+map:lehrveranstaltungen_dt_wochentag a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_wochentag;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt wochentag";
+	d2rq:column "lehrveranstaltungen_dt.wochentag";
+	.
+map:lehrveranstaltungen_dt_fakultaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_fakultaet;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt fakultaet";
+	d2rq:column "lehrveranstaltungen_dt.fakultaet";
+	.
+map:lehrveranstaltungen_dt_veranstaltungstyp a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_veranstaltungstyp;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt veranstaltungstyp";
+	d2rq:column "lehrveranstaltungen_dt.veranstaltungstyp";
+	.
+map:lehrveranstaltungen_dt_materialientyp a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_materialientyp;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt materialientyp";
+	d2rq:column "lehrveranstaltungen_dt.materialientyp";
+	.
+map:lehrveranstaltungen_dt_materialname a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_materialname;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt materialname";
+	d2rq:column "lehrveranstaltungen_dt.materialname";
+	.
+map:lehrveranstaltungen_dt_id_werk a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_id_werk;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt id_werk";
+	d2rq:column "lehrveranstaltungen_dt.id_werk";
+	.
+map:lehrveranstaltungen_dt_sonstiges a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_sonstiges;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt sonstiges";
+	d2rq:column "lehrveranstaltungen_dt.sonstiges";
+	.
+map:lehrveranstaltungen_dt_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_id;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt id";
+	d2rq:column "lehrveranstaltungen_dt.id";
+	d2rq:datatype xsd:integer;
+	.
+map:lehrveranstaltungen_dt_digi a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:lehrveranstaltungen_dt;
+	d2rq:property vocab:lehrveranstaltungen_dt_digi;
+	d2rq:propertyDefinitionLabel "lehrveranstaltungen_dt digi";
+	d2rq:column "lehrveranstaltungen_dt.digi";
+	.
+
+# Table matrikel
+map:matrikel a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "matrikel/@@matrikel.id@@";
+	d2rq:class vocab:matrikel;
+	d2rq:classDefinitionLabel "matrikel";
+	.
+map:matrikel__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property rdfs:label;
+	d2rq:pattern "matrikel #@@matrikel.id@@";
+	.
+map:matrikel_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_id;
+	d2rq:propertyDefinitionLabel "matrikel id";
+	d2rq:column "matrikel.id";
+	d2rq:datatype xsd:integer;
+	.
+map:matrikel_gnd a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_gnd;
+	d2rq:propertyDefinitionLabel "matrikel gnd";
+	d2rq:column "matrikel.gnd";
+	.
+map:matrikel_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_name;
+	d2rq:propertyDefinitionLabel "matrikel name";
+	d2rq:column "matrikel.name";
+	.
+map:matrikel_firstname a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_firstname;
+	d2rq:propertyDefinitionLabel "matrikel firstname";
+	d2rq:column "matrikel.firstname";
+	.
+map:matrikel_herkunft a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_herkunft;
+	d2rq:propertyDefinitionLabel "matrikel herkunft";
+	d2rq:column "matrikel.herkunft";
+	.
+map:matrikel_semester a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_semester;
+	d2rq:propertyDefinitionLabel "matrikel semester";
+	d2rq:column "matrikel.semester";
+	.
+map:matrikel_note a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_note;
+	d2rq:propertyDefinitionLabel "matrikel note";
+	d2rq:column "matrikel.note";
+	.
+map:matrikel_date a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_date;
+	d2rq:propertyDefinitionLabel "matrikel date";
+	d2rq:column "matrikel.date";
+	.
+map:matrikel_year a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_year;
+	d2rq:propertyDefinitionLabel "matrikel year";
+	d2rq:column "matrikel.year";
+	.
+map:matrikel_monat a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_monat;
+	d2rq:propertyDefinitionLabel "matrikel monat";
+	d2rq:column "matrikel.monat";
+	.
+map:matrikel_day a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_day;
+	d2rq:propertyDefinitionLabel "matrikel day";
+	d2rq:column "matrikel.day";
+	.
+map:matrikel_digi a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_digi;
+	d2rq:propertyDefinitionLabel "matrikel digi";
+	d2rq:column "matrikel.digi";
+	.
+map:matrikel_place a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:matrikel;
+	d2rq:property vocab:matrikel_place;
+	d2rq:propertyDefinitionLabel "matrikel place";
+	d2rq:column "matrikel.place";
+	.
+
+# Table pnd
+map:pnd a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "pnd/@@pnd.id_person@@/@@pnd.pnd@@";
+	d2rq:class vocab:pnd;
+	d2rq:classDefinitionLabel "pnd";
+	.
+map:pnd__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property rdfs:label;
+	d2rq:pattern "pnd #@@pnd.id_person@@/@@pnd.pnd@@";
+	.
+map:pnd_pnd a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_pnd;
+	d2rq:propertyDefinitionLabel "pnd pnd";
+	d2rq:column "pnd.pnd";
+	d2rq:datatype xsd:integer;
+	.
+map:pnd_name_lat a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_name_lat;
+	d2rq:propertyDefinitionLabel "pnd name_lat";
+	d2rq:column "pnd.name_lat";
+	.
+map:pnd_vorname_lat a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_vorname_lat;
+	d2rq:propertyDefinitionLabel "pnd vorname_lat";
+	d2rq:column "pnd.vorname_lat";
+	.
+map:pnd_name_dt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_name_dt;
+	d2rq:propertyDefinitionLabel "pnd name_dt";
+	d2rq:column "pnd.name_dt";
+	.
+map:pnd_vorname_dt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_vorname_dt;
+	d2rq:propertyDefinitionLabel "pnd vorname_dt";
+	d2rq:column "pnd.vorname_dt";
+	.
+map:pnd_namenvariante a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_namenvariante;
+	d2rq:propertyDefinitionLabel "pnd namenvariante";
+	d2rq:column "pnd.namenvariante";
+	.
+map:pnd_vornamenvariante a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_vornamenvariante;
+	d2rq:propertyDefinitionLabel "pnd vornamenvariante";
+	d2rq:column "pnd.vornamenvariante";
+	.
+map:pnd_sonstige_angaben a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_sonstige_angaben;
+	d2rq:propertyDefinitionLabel "pnd sonstige_angaben";
+	d2rq:column "pnd.sonstige_angaben";
+	.
+map:pnd_lebens_o_wirkungsdaten a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_lebens_o_wirkungsdaten;
+	d2rq:propertyDefinitionLabel "pnd lebens_o_wirkungsdaten";
+	d2rq:column "pnd.lebens_o_wirkungsdaten";
+	.
+map:pnd_wirkungsdaten a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_wirkungsdaten;
+	d2rq:propertyDefinitionLabel "pnd wirkungsdaten";
+	d2rq:column "pnd.wirkungsdaten";
+	.
+map:pnd_ahrens a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_ahrens;
+	d2rq:propertyDefinitionLabel "pnd ahrens";
+	d2rq:column "pnd.ahrens";
+	.
+map:pnd_herkunft a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_herkunft;
+	d2rq:propertyDefinitionLabel "pnd herkunft";
+	d2rq:column "pnd.herkunft";
+	.
+map:pnd_matrikel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_matrikel;
+	d2rq:propertyDefinitionLabel "pnd matrikel";
+	d2rq:column "pnd.matrikel";
+	.
+map:pnd_semester a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_semester;
+	d2rq:propertyDefinitionLabel "pnd semester";
+	d2rq:column "pnd.semester";
+	.
+map:pnd_id_praeses a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_id_praeses;
+	d2rq:propertyDefinitionLabel "pnd id_praeses";
+	d2rq:column "pnd.id_praeses";
+	d2rq:datatype xsd:integer;
+	.
+map:pnd_id_dozent a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_id_dozent;
+	d2rq:propertyDefinitionLabel "pnd id_dozent";
+	d2rq:column "pnd.id_dozent";
+	d2rq:datatype xsd:integer;
+	.
+map:pnd_id_drucker a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_id_drucker;
+	d2rq:propertyDefinitionLabel "pnd id_drucker";
+	d2rq:column "pnd.id_drucker";
+	d2rq:datatype xsd:integer;
+	.
+map:pnd_id_person a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_id_person;
+	d2rq:propertyDefinitionLabel "pnd id_person";
+	d2rq:column "pnd.id_person";
+	d2rq:datatype xsd:integer;
+	.
+map:pnd_gnd a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:pnd;
+	d2rq:property vocab:pnd_gnd;
+	d2rq:propertyDefinitionLabel "pnd gnd";
+	d2rq:column "pnd.gnd";
+	.
+
+# Table prof_add_inf
+map:prof_add_inf a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "prof_add_inf/@@prof_add_inf.id@@";
+	d2rq:class vocab:prof_add_inf;
+	d2rq:classDefinitionLabel "prof_add_inf";
+	.
+map:prof_add_inf__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_add_inf;
+	d2rq:property rdfs:label;
+	d2rq:pattern "prof_add_inf #@@prof_add_inf.id@@";
+	.
+map:prof_add_inf_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_add_inf;
+	d2rq:property vocab:prof_add_inf_id;
+	d2rq:propertyDefinitionLabel "prof_add_inf id";
+	d2rq:column "prof_add_inf.id";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_add_inf_zusatzinformation a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_add_inf;
+	d2rq:property vocab:prof_add_inf_zusatzinformation;
+	d2rq:propertyDefinitionLabel "prof_add_inf zusatzinformation";
+	d2rq:column "prof_add_inf.zusatzinformation";
+	.
+map:prof_add_inf_idProf__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_add_inf;
+	d2rq:property vocab:prof_add_inf_idProf;
+	d2rq:refersToClassMap map:temp_prof_kat;
+	d2rq:join "prof_add_inf.idProf => temp_prof_kat.id";
+	.
+
+# Table prof_amt
+map:prof_amt a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "prof_amt/@@prof_amt.id@@";
+	d2rq:class vocab:prof_amt;
+	d2rq:classDefinitionLabel "prof_amt";
+	.
+map:prof_amt__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property rdfs:label;
+	d2rq:pattern "prof_amt #@@prof_amt.id@@";
+	.
+map:prof_amt_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property vocab:prof_amt_id;
+	d2rq:propertyDefinitionLabel "prof_amt id";
+	d2rq:column "prof_amt.id";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_amt_ort a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property vocab:prof_amt_ort;
+	d2rq:propertyDefinitionLabel "prof_amt ort";
+	d2rq:column "prof_amt.ort";
+	.
+map:prof_amt_amt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property vocab:prof_amt_amt;
+	d2rq:propertyDefinitionLabel "prof_amt amt";
+	d2rq:column "prof_amt.amt";
+	.
+map:prof_amt_von a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property vocab:prof_amt_von;
+	d2rq:propertyDefinitionLabel "prof_amt von";
+	d2rq:column "prof_amt.von";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_amt_bis a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property vocab:prof_amt_bis;
+	d2rq:propertyDefinitionLabel "prof_amt bis";
+	d2rq:column "prof_amt.bis";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_amt_kommentar a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property vocab:prof_amt_kommentar;
+	d2rq:propertyDefinitionLabel "prof_amt kommentar";
+	d2rq:column "prof_amt.kommentar";
+	.
+map:prof_amt_idProf__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt;
+	d2rq:property vocab:prof_amt_idProf;
+	d2rq:refersToClassMap map:temp_prof_kat;
+	d2rq:join "prof_amt.idProf => temp_prof_kat.id";
+	.
+
+# Table prof_amt_akad
+map:prof_amt_akad a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "prof_amt_akad/@@prof_amt_akad.id@@";
+	d2rq:class vocab:prof_amt_akad;
+	d2rq:classDefinitionLabel "prof_amt_akad";
+	.
+map:prof_amt_akad__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property rdfs:label;
+	d2rq:pattern "prof_amt_akad #@@prof_amt_akad.id@@";
+	.
+map:prof_amt_akad_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_id;
+	d2rq:propertyDefinitionLabel "prof_amt_akad id";
+	d2rq:column "prof_amt_akad.id";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_amt_akad_universitaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_universitaet;
+	d2rq:propertyDefinitionLabel "prof_amt_akad universitaet";
+	d2rq:column "prof_amt_akad.universitaet";
+	.
+map:prof_amt_akad_fakultaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_fakultaet;
+	d2rq:propertyDefinitionLabel "prof_amt_akad fakultaet";
+	d2rq:column "prof_amt_akad.fakultaet";
+	.
+map:prof_amt_akad_von a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_von;
+	d2rq:propertyDefinitionLabel "prof_amt_akad von";
+	d2rq:column "prof_amt_akad.von";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_amt_akad_bis a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_bis;
+	d2rq:propertyDefinitionLabel "prof_amt_akad bis";
+	d2rq:column "prof_amt_akad.bis";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_amt_akad_amt a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_amt;
+	d2rq:propertyDefinitionLabel "prof_amt_akad amt";
+	d2rq:column "prof_amt_akad.amt";
+	.
+map:prof_amt_akad_kommentar a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_kommentar;
+	d2rq:propertyDefinitionLabel "prof_amt_akad kommentar";
+	d2rq:column "prof_amt_akad.kommentar";
+	.
+map:prof_amt_akad_idProf__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_amt_akad;
+	d2rq:property vocab:prof_amt_akad_idProf;
+	d2rq:refersToClassMap map:temp_prof_kat;
+	d2rq:join "prof_amt_akad.idProf => temp_prof_kat.id";
+	.
+
+# Table prof_lehrstuhl
+map:prof_lehrstuhl a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "prof_lehrstuhl/@@prof_lehrstuhl.id@@";
+	d2rq:class vocab:prof_lehrstuhl;
+	d2rq:classDefinitionLabel "prof_lehrstuhl";
+	.
+map:prof_lehrstuhl__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property rdfs:label;
+	d2rq:pattern "prof_lehrstuhl #@@prof_lehrstuhl.id@@";
+	.
+map:prof_lehrstuhl_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_id;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl id";
+	d2rq:column "prof_lehrstuhl.id";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_lehrstuhl_universitaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_universitaet;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl universitaet";
+	d2rq:column "prof_lehrstuhl.universitaet";
+	.
+map:prof_lehrstuhl_fakultaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_fakultaet;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl fakultaet";
+	d2rq:column "prof_lehrstuhl.fakultaet";
+	.
+map:prof_lehrstuhl_von a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_von;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl von";
+	d2rq:column "prof_lehrstuhl.von";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_lehrstuhl_bis a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_bis;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl bis";
+	d2rq:column "prof_lehrstuhl.bis";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_lehrstuhl_lehrstuhl a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_lehrstuhl;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl lehrstuhl";
+	d2rq:column "prof_lehrstuhl.lehrstuhl";
+	.
+map:prof_lehrstuhl_ordentlich a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_ordentlich;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl ordentlich";
+	d2rq:column "prof_lehrstuhl.ordentlich";
+	d2rq:datatype xsd:boolean;
+	.
+map:prof_lehrstuhl_kommentar a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_kommentar;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl kommentar";
+	d2rq:column "prof_lehrstuhl.kommentar";
+	.
+map:prof_lehrstuhl_gnd_universitaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_gnd_universitaet;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl gnd_universitaet";
+	d2rq:column "prof_lehrstuhl.gnd_universitaet";
+	.
+map:prof_lehrstuhl_ansetzung_uni a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_ansetzung_uni;
+	d2rq:propertyDefinitionLabel "prof_lehrstuhl ansetzung_uni";
+	d2rq:column "prof_lehrstuhl.ansetzung_uni";
+	.
+map:prof_lehrstuhl_idProf__ref a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_lehrstuhl;
+	d2rq:property vocab:prof_lehrstuhl_idProf;
+	d2rq:refersToClassMap map:temp_prof_kat;
+	d2rq:join "prof_lehrstuhl.idProf => temp_prof_kat.id";
+	.
+
+# Table prof_matrikel
+map:prof_matrikel a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "prof_matrikel/@@prof_matrikel.id@@";
+	d2rq:class vocab:prof_matrikel;
+	d2rq:classDefinitionLabel "prof_matrikel";
+	.
+map:prof_matrikel__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_matrikel;
+	d2rq:property rdfs:label;
+	d2rq:pattern "prof_matrikel #@@prof_matrikel.id@@";
+	.
+map:prof_matrikel_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_matrikel;
+	d2rq:property vocab:prof_matrikel_id;
+	d2rq:propertyDefinitionLabel "prof_matrikel id";
+	d2rq:column "prof_matrikel.id";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_matrikel_idMatrikel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_matrikel;
+	d2rq:property vocab:prof_matrikel_idMatrikel;
+	d2rq:propertyDefinitionLabel "prof_matrikel idMatrikel";
+	d2rq:column "prof_matrikel.idMatrikel";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_matrikel_idProf a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_matrikel;
+	d2rq:property vocab:prof_matrikel_idProf;
+	d2rq:propertyDefinitionLabel "prof_matrikel idProf";
+	d2rq:column "prof_matrikel.idProf";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_matrikel_unsicher a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_matrikel;
+	d2rq:property vocab:prof_matrikel_unsicher;
+	d2rq:propertyDefinitionLabel "prof_matrikel unsicher";
+	d2rq:column "prof_matrikel.unsicher";
+	d2rq:datatype xsd:boolean;
+	.
+
+# Table prof_var_name
+map:prof_var_name a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "prof_var_name/@@prof_var_name.id@@";
+	d2rq:class vocab:prof_var_name;
+	d2rq:classDefinitionLabel "prof_var_name";
+	.
+map:prof_var_name__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_var_name;
+	d2rq:property rdfs:label;
+	d2rq:pattern "prof_var_name #@@prof_var_name.id@@";
+	.
+map:prof_var_name_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_var_name;
+	d2rq:property vocab:prof_var_name_id;
+	d2rq:propertyDefinitionLabel "prof_var_name id";
+	d2rq:column "prof_var_name.id";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_var_name_idProf a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_var_name;
+	d2rq:property vocab:prof_var_name_idProf;
+	d2rq:propertyDefinitionLabel "prof_var_name idProf";
+	d2rq:column "prof_var_name.idProf";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_var_name_variant_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_var_name;
+	d2rq:property vocab:prof_var_name_variant_name;
+	d2rq:propertyDefinitionLabel "prof_var_name variant_name";
+	d2rq:column "prof_var_name.variant_name";
+	.
+
+# Table prof_wife
+map:prof_wife a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "prof_wife/@@prof_wife.id@@";
+	d2rq:class vocab:prof_wife;
+	d2rq:classDefinitionLabel "prof_wife";
+	.
+map:prof_wife__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property rdfs:label;
+	d2rq:pattern "prof_wife #@@prof_wife.id@@";
+	.
+map:prof_wife_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_id;
+	d2rq:propertyDefinitionLabel "prof_wife id";
+	d2rq:column "prof_wife.id";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_wife_idProf a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_idProf;
+	d2rq:propertyDefinitionLabel "prof_wife idProf";
+	d2rq:column "prof_wife.idProf";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_wife_gnd_wife a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_gnd_wife;
+	d2rq:propertyDefinitionLabel "prof_wife gnd_wife";
+	d2rq:column "prof_wife.gnd_wife";
+	.
+map:prof_wife_forename_wife a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_forename_wife;
+	d2rq:propertyDefinitionLabel "prof_wife forename_wife";
+	d2rq:column "prof_wife.forename_wife";
+	.
+map:prof_wife_name_wife a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_name_wife;
+	d2rq:propertyDefinitionLabel "prof_wife name_wife";
+	d2rq:column "prof_wife.name_wife";
+	.
+map:prof_wife_birthname a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_birthname;
+	d2rq:propertyDefinitionLabel "prof_wife birthname";
+	d2rq:column "prof_wife.birthname";
+	.
+map:prof_wife_birthdate a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_birthdate;
+	d2rq:propertyDefinitionLabel "prof_wife birthdate";
+	d2rq:column "prof_wife.birthdate";
+	.
+map:prof_wife_deathdate a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_deathdate;
+	d2rq:propertyDefinitionLabel "prof_wife deathdate";
+	d2rq:column "prof_wife.deathdate";
+	.
+map:prof_wife_origin a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_origin;
+	d2rq:propertyDefinitionLabel "prof_wife origin";
+	d2rq:column "prof_wife.origin";
+	.
+map:prof_wife_origin_geonames a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_origin_geonames;
+	d2rq:propertyDefinitionLabel "prof_wife origin_geonames";
+	d2rq:column "prof_wife.origin_geonames";
+	.
+map:prof_wife_year_wedding a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_year_wedding;
+	d2rq:propertyDefinitionLabel "prof_wife year_wedding";
+	d2rq:column "prof_wife.year_wedding";
+	d2rq:datatype xsd:integer;
+	.
+map:prof_wife_note a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:prof_wife;
+	d2rq:property vocab:prof_wife_note;
+	d2rq:propertyDefinitionLabel "prof_wife note";
+	d2rq:column "prof_wife.note";
+	.
+
+# Table rechenschaftsberichte
+map:rechenschaftsberichte a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "rechenschaftsberichte/@@rechenschaftsberichte.id@@";
+	d2rq:class vocab:rechenschaftsberichte;
+	d2rq:classDefinitionLabel "rechenschaftsberichte";
+	.
+map:rechenschaftsberichte__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property rdfs:label;
+	d2rq:pattern "rechenschaftsberichte #@@rechenschaftsberichte.id@@";
+	.
+map:rechenschaftsberichte_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_id;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte id";
+	d2rq:column "rechenschaftsberichte.id";
+	d2rq:datatype xsd:integer;
+	.
+map:rechenschaftsberichte_pnd_praeses a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_pnd_praeses;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte pnd_praeses";
+	d2rq:column "rechenschaftsberichte.pnd_praeses";
+	d2rq:datatype xsd:integer;
+	.
+map:rechenschaftsberichte_start_jahr a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_start_jahr;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte start_jahr";
+	d2rq:column "rechenschaftsberichte.start_jahr";
+	d2rq:datatype xsd:integer;
+	.
+map:rechenschaftsberichte_start_monat a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_start_monat;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte start_monat";
+	d2rq:column "rechenschaftsberichte.start_monat";
+	.
+map:rechenschaftsberichte_start_tag a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_start_tag;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte start_tag";
+	d2rq:column "rechenschaftsberichte.start_tag";
+	.
+map:rechenschaftsberichte_ende_jahr a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_ende_jahr;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte ende_jahr";
+	d2rq:column "rechenschaftsberichte.ende_jahr";
+	d2rq:datatype xsd:integer;
+	.
+map:rechenschaftsberichte_ende_monat a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_ende_monat;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte ende_monat";
+	d2rq:column "rechenschaftsberichte.ende_monat";
+	.
+map:rechenschaftsberichte_ende_tag a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_ende_tag;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte ende_tag";
+	d2rq:column "rechenschaftsberichte.ende_tag";
+	.
+map:rechenschaftsberichte_schlagwort a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_schlagwort;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte schlagwort";
+	d2rq:column "rechenschaftsberichte.schlagwort";
+	.
+map:rechenschaftsberichte_fakultaet a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_fakultaet;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte fakultaet";
+	d2rq:column "rechenschaftsberichte.fakultaet";
+	.
+map:rechenschaftsberichte_sgn a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_sgn;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte sgn";
+	d2rq:column "rechenschaftsberichte.sgn";
+	.
+map:rechenschaftsberichte_page a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_page;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte page";
+	d2rq:column "rechenschaftsberichte.page";
+	.
+map:rechenschaftsberichte_text a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_text;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte text";
+	d2rq:column "rechenschaftsberichte.text";
+	.
+map:rechenschaftsberichte_varia a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:rechenschaftsberichte;
+	d2rq:property vocab:rechenschaftsberichte_varia;
+	d2rq:propertyDefinitionLabel "rechenschaftsberichte varia";
+	d2rq:column "rechenschaftsberichte.varia";
+	.
+
+# Table reden_und_programme
+map:reden_und_programme a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "reden_und_programme/@@reden_und_programme.id@@";
+	d2rq:class vocab:reden_und_programme;
+	d2rq:classDefinitionLabel "reden_und_programme";
+	.
+map:reden_und_programme__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property rdfs:label;
+	d2rq:pattern "reden_und_programme #@@reden_und_programme.id@@";
+	.
+map:reden_und_programme_id_repro a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_id_repro;
+	d2rq:propertyDefinitionLabel "reden_und_programme id_repro";
+	d2rq:column "reden_und_programme.id_repro";
+	d2rq:datatype xsd:integer;
+	.
+map:reden_und_programme_pnd_verfasser a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_pnd_verfasser;
+	d2rq:propertyDefinitionLabel "reden_und_programme pnd_verfasser";
+	d2rq:column "reden_und_programme.pnd_verfasser";
+	d2rq:datatype xsd:integer;
+	.
+map:reden_und_programme_pnd_drucker a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_pnd_drucker;
+	d2rq:propertyDefinitionLabel "reden_und_programme pnd_drucker";
+	d2rq:column "reden_und_programme.pnd_drucker";
+	d2rq:datatype xsd:integer;
+	.
+map:reden_und_programme_titel a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_titel;
+	d2rq:propertyDefinitionLabel "reden_und_programme titel";
+	d2rq:column "reden_und_programme.titel";
+	.
+map:reden_und_programme_datum a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_datum;
+	d2rq:propertyDefinitionLabel "reden_und_programme datum";
+	d2rq:column "reden_und_programme.datum";
+	d2rq:datatype xsd:date;
+	.
+map:reden_und_programme_umfang a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_umfang;
+	d2rq:propertyDefinitionLabel "reden_und_programme umfang";
+	d2rq:column "reden_und_programme.umfang";
+	.
+map:reden_und_programme_beteilgte_1 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_beteilgte_1;
+	d2rq:propertyDefinitionLabel "reden_und_programme beteilgte_1";
+	d2rq:column "reden_und_programme.beteilgte_1";
+	.
+map:reden_und_programme_beteilgte_2 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_beteilgte_2;
+	d2rq:propertyDefinitionLabel "reden_und_programme beteilgte_2";
+	d2rq:column "reden_und_programme.beteilgte_2";
+	.
+map:reden_und_programme_beteilgte_3 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_beteilgte_3;
+	d2rq:propertyDefinitionLabel "reden_und_programme beteilgte_3";
+	d2rq:column "reden_und_programme.beteilgte_3";
+	.
+map:reden_und_programme_beteilgte_4 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_beteilgte_4;
+	d2rq:propertyDefinitionLabel "reden_und_programme beteilgte_4";
+	d2rq:column "reden_und_programme.beteilgte_4";
+	.
+map:reden_und_programme_schlagwort a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_schlagwort;
+	d2rq:propertyDefinitionLabel "reden_und_programme schlagwort";
+	d2rq:column "reden_und_programme.schlagwort";
+	.
+map:reden_und_programme_nachweis_wf a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_nachweis_wf;
+	d2rq:propertyDefinitionLabel "reden_und_programme nachweis_wf";
+	d2rq:column "reden_und_programme.nachweis_wf";
+	.
+map:reden_und_programme_nachweis a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_nachweis;
+	d2rq:propertyDefinitionLabel "reden_und_programme nachweis";
+	d2rq:column "reden_und_programme.nachweis";
+	.
+map:reden_und_programme_Sonstiges a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_Sonstiges;
+	d2rq:propertyDefinitionLabel "reden_und_programme Sonstiges";
+	d2rq:column "reden_und_programme.Sonstiges";
+	.
+map:reden_und_programme_vd16 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_vd16;
+	d2rq:propertyDefinitionLabel "reden_und_programme vd16";
+	d2rq:column "reden_und_programme.vd16";
+	.
+map:reden_und_programme_vd17 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_vd17;
+	d2rq:propertyDefinitionLabel "reden_und_programme vd17";
+	d2rq:column "reden_und_programme.vd17";
+	.
+map:reden_und_programme_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_id;
+	d2rq:propertyDefinitionLabel "reden_und_programme id";
+	d2rq:column "reden_und_programme.id";
+	d2rq:datatype xsd:integer;
+	.
+<#reden_und_programme_Benutzes%20Exemplar> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property <vocab/reden_und_programme_Benutzes%20Exemplar>;
+	d2rq:propertyDefinitionLabel "reden_und_programme Benutzes Exemplar";
+	d2rq:column "reden_und_programme.Benutzes Exemplar";
+	.
+map:reden_und_programme_Verfasser_Rech a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_Verfasser_Rech;
+	d2rq:propertyDefinitionLabel "reden_und_programme Verfasser_Rech";
+	d2rq:column "reden_und_programme.Verfasser_Rech";
+	.
+map:reden_und_programme_ppn a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_ppn;
+	d2rq:propertyDefinitionLabel "reden_und_programme ppn";
+	d2rq:column "reden_und_programme.ppn";
+	.
+map:reden_und_programme_digi a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:reden_und_programme;
+	d2rq:property vocab:reden_und_programme_digi;
+	d2rq:propertyDefinitionLabel "reden_und_programme digi";
+	d2rq:column "reden_und_programme.digi";
+	.
+
+# Table temp_prof_kat
+map:temp_prof_kat a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "temp_prof_kat/@@temp_prof_kat.id@@";
+	d2rq:class vocab:temp_prof_kat;
+	d2rq:classDefinitionLabel "temp_prof_kat";
+	.
+map:temp_prof_kat__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property rdfs:label;
+	d2rq:pattern "temp_prof_kat #@@temp_prof_kat.id@@";
+	.
+map:temp_prof_kat_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_id;
+	d2rq:propertyDefinitionLabel "temp_prof_kat id";
+	d2rq:column "temp_prof_kat.id";
+	d2rq:datatype xsd:integer;
+	.
+map:temp_prof_kat_gnd a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_gnd;
+	d2rq:propertyDefinitionLabel "temp_prof_kat gnd";
+	d2rq:column "temp_prof_kat.gnd";
+	.
+map:temp_prof_kat_ppn a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_ppn;
+	d2rq:propertyDefinitionLabel "temp_prof_kat ppn";
+	d2rq:column "temp_prof_kat.ppn";
+	.
+map:temp_prof_kat_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_name;
+	d2rq:propertyDefinitionLabel "temp_prof_kat name";
+	d2rq:column "temp_prof_kat.name";
+	.
+map:temp_prof_kat_firstname a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_firstname;
+	d2rq:propertyDefinitionLabel "temp_prof_kat firstname";
+	d2rq:column "temp_prof_kat.firstname";
+	.
+map:temp_prof_kat_birthdate a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_birthdate;
+	d2rq:propertyDefinitionLabel "temp_prof_kat birthdate";
+	d2rq:column "temp_prof_kat.birthdate";
+	.
+map:temp_prof_kat_birthplace a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_birthplace;
+	d2rq:propertyDefinitionLabel "temp_prof_kat birthplace";
+	d2rq:column "temp_prof_kat.birthplace";
+	.
+map:temp_prof_kat_birthplace_geonames a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_birthplace_geonames;
+	d2rq:propertyDefinitionLabel "temp_prof_kat birthplace_geonames";
+	d2rq:column "temp_prof_kat.birthplace_geonames";
+	.
+map:temp_prof_kat_deathdate a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_deathdate;
+	d2rq:propertyDefinitionLabel "temp_prof_kat deathdate";
+	d2rq:column "temp_prof_kat.deathdate";
+	.
+map:temp_prof_kat_deathplace a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_deathplace;
+	d2rq:propertyDefinitionLabel "temp_prof_kat deathplace";
+	d2rq:column "temp_prof_kat.deathplace";
+	.
+map:temp_prof_kat_deathplace_geonames a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_deathplace_geonames;
+	d2rq:propertyDefinitionLabel "temp_prof_kat deathplace_geonames";
+	d2rq:column "temp_prof_kat.deathplace_geonames";
+	.
+map:temp_prof_kat_faculty a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_faculty;
+	d2rq:propertyDefinitionLabel "temp_prof_kat faculty";
+	d2rq:column "temp_prof_kat.faculty";
+	.
+map:temp_prof_kat_note a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_note;
+	d2rq:propertyDefinitionLabel "temp_prof_kat note";
+	d2rq:column "temp_prof_kat.note";
+	.
+map:temp_prof_kat_image a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_image;
+	d2rq:propertyDefinitionLabel "temp_prof_kat image";
+	d2rq:column "temp_prof_kat.image";
+	.
+map:temp_prof_kat_imageSource a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_imageSource;
+	d2rq:propertyDefinitionLabel "temp_prof_kat imageSource";
+	d2rq:column "temp_prof_kat.imageSource";
+	.
+map:temp_prof_kat_pnd a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:temp_prof_kat;
+	d2rq:property vocab:temp_prof_kat_pnd;
+	d2rq:propertyDefinitionLabel "temp_prof_kat pnd";
+	d2rq:column "temp_prof_kat.pnd";
+	.
+
