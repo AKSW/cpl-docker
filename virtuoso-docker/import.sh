@@ -3,7 +3,7 @@
 set -o nounset
 
 bin="isql-vt"
-host="store"
+host="virtuoso"
 port=1111
 user="dba"
 password=${STORE_ENV_PWDDBA}
@@ -106,7 +106,7 @@ for graph_file in *.graph; do
 done
 
 
-#ensure that all supported formats get into the load list 
+#ensure that all supported formats get into the load list
 #(since we have to excluse graph-files *.* won't do the trick
 echo "[INFO] registring RDF documents for import"
 for ext in nt nq owl rdf trig ttl xml gz; do
