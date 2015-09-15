@@ -36,6 +36,10 @@ RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enable
 # configure odbc for virtuoso
 ADD odbc.ini /etc/
 
+# overwrite php upload/post
+RUN echo "upload_max_filesize = 512" >> /etc/php5/fpm/php.ini
+RUN echo "post_max_size = 512" >> /etc/php5/fpm/php.ini
+
 # Add startscript and start
 ADD start.sh /start.sh
 ADD ow-docker.fig /ow-docker.fig
