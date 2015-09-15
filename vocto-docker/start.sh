@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# change this line to rewrite docker-cache
+
 # execute config script
 chmod +x /config/config-run.sh
 /config/config-run.sh
