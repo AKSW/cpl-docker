@@ -13,7 +13,7 @@ RUN echo 'phpmyadmin phpmyadmin/mysql/app-pass password $MYSQL_PASSWORD' | debco
 RUN echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
 
 RUN apt-get update
-RUN apt-get -y install mysql-server phpmyadmin default-jre
+RUN apt-get -y install mysql-server phpmyadmin default-jre --fix-missing
 
 RUN echo "Include /etc/phpmyadmin/apache.conf" >> /etc/apache2/apache2.conf
 RUN echo "upload_max_filesize = $MAX_FILE_SIZE" >> /etc/php5/apache2/php.ini
