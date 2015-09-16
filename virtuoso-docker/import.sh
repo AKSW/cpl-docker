@@ -3,7 +3,7 @@
 set -o nounset
 
 bin="isql-vt"
-host="virtuoso"
+host="store"
 port=1111
 user="dba"
 password=${STORE_ENV_PWDDBA}
