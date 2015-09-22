@@ -1,0 +1,35 @@
+body{
+text-align:center;
+padding:50px;
+}
+textarea{
+/*width:400px;*/
+height:300px;
+border:1px solid #999;
+padding:10px;
+font-family: monospace;
+font-size:13px;
+}
+textarea:focus{
+border-color:#333;
+}
+.btn-file {
+position: relative;
+overflow: hidden;
+}
+.btn-file input[type=file] {
+position: absolute;
+top: 0;
+right: 0;
+min-width: 100%;
+min-height: 100%;
+font-size: 100px;
+text-align: right;
+filter: alpha(opacity=0);
+opacity: 0;
+outline: none;
+background: white;
+cursor: inherit;
+display: block;
+}
+</style>

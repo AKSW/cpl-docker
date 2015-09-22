@@ -20,8 +20,8 @@ RUN echo "upload_max_filesize = $MAX_FILE_SIZE" >> /etc/php5/apache2/php.ini
 RUN echo "post_max_size = $MAX_FILE_SIZE" >> /etc/php5/apache2/php.ini
 
 ADD d2rq.tar.gz /
-
-VOLUME "/d2rq"
+COPY editor /var/www/html/editor
+COPY scripts /var/www/scripts
 
 EXPOSE 80
 
