@@ -38,11 +38,11 @@
         <br/>
         <div class="row">
           <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" onClick="self.location='http://192.168.99.100:8080/editor/index.php?runFunction=map'">Create Mapping</button>
+            <button type="button" class="btn btn-default" onClick="self.location='index.php?runFunction=map'">Create Mapping</button>
             <span class="btn btn-default btn-file">
             Load Mapping File <input type="file" id="fileinput"/>
             </span>
-            <button type="button" class="btn btn-default" onClick="self.location='http://192.168.99.100:8080/editor/index.php?runFunction=dump'">Create Dump</button>
+            <button type="button" class="btn btn-default" onClick="self.location='index.php?runFunction=dump'">Create Dump</button>
           </div>
         </div>
       </div>
@@ -91,8 +91,7 @@
 
         // Check for the various File API support.
         if (window.File && window.FileReader && window.FileList && window.Blob) {
-        //do your stuff!
-
+          
         function readSingleFile(evt) {
           //Retrieve the first (and only!) File from the FileList object
           var f = evt.target.files[0];
