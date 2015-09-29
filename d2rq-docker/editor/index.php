@@ -2,22 +2,29 @@
   unset($_SESSION["message_output"]);
   unset($_SESSION["mapping_text"]);
 
-  if(isset($_GET['runFunction']) && function_exists($_GET['runFunction']))
+  if(isset($_POST["mapping_file"]))
+    call_user_func("save");
+  else if(isset($_GET['runFunction']) && function_exists($_GET['runFunction']))
   	call_user_func($_GET['runFunction']);
 
   function map () {
-  	$message = shell_exec("/var/www/scripts/map.sh 2>&1");
+  	$message = shell_exec("/var/www/scripts/map.sh");
   	$_SESSION["message_output"] = $message;
-    $_SESSION["mapping_text"] = shell_exec("/var/www/scripts/echo_mapping.sh 2>&1");
+    $_SESSION["mapping_text"] = shell_exec("/var/www/scripts/echo_mapping.sh");
   }
 
   function dump () {
-  $message = shell_exec("/var/www/scripts/dump.sh 2>&1");
+  $message = shell_exec("/var/www/scripts/dump.sh");
   	$_SESSION["message_output"] = $message;
   }
 
   function save () {
 
+    $_SESSION["mapping_text"] = $_POST["mapping_file"];
+    $mappingFile =  escapeshellarg($_POST["mapping_file"]);
+
+    $message = shell_exec("/var/www/scripts/save.sh $mappingFile");
+    $_SESSION["message_output"] = $message;
   }
   ?>
 <!DOCTYPE html>
@@ -50,21 +57,18 @@
     <br />
     <div class="row">
       <h1>Edit Mapping File</h1>
-      <textarea class="col-md-offset-1 col-md-10 col-md-offset-1" id="textarea">
-
-        <?php
+      <form action="index.php" method="post" id="save_form">
+      </form>
+      <textarea name="mapping_file" form="save_form" class="col-md-offset-1 col-md-10 col-md-offset-1" id="textarea"><?php
         if (isset($_SESSION["mapping_text"]))
           echo $_SESSION["mapping_text"]
-
-        ?>
-
-      </textarea>
+        ?></textarea>
     </div>
     <br />
     <div class="row">
       <div class="col-md-offset-3 col-md-6 col-md-offset-3">
         <div class="btn-group" role="group" aria-label="...">
-          <button id ="save_button" type="button" class="btn btn-default">Save Mapping File</button>
+          <button id ="save_button" type="submit" form="save_form" class="btn btn-default">Save Mapping File</button>
         </div>
       </div>
     </div>
@@ -91,7 +95,7 @@
 
         // Check for the various File API support.
         if (window.File && window.FileReader && window.FileList && window.Blob) {
-          
+
         function readSingleFile(evt) {
           //Retrieve the first (and only!) File from the FileList object
           var f = evt.target.files[0];
@@ -119,7 +123,6 @@
         } else {
           alert('The File APIs are not fully supported by your browser.');
         }
-
     </script>
   </body>
 </html>

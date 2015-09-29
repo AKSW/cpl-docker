@@ -1,9 +1,9 @@
 #!/bin/sh
 
-OUTPUT=$(/d2rq/dump-rdf /d2rq-data/results/mapping.ttl)
+OUTPUT=$(/d2rq/dump-rdf /var/www/results/results/mapping.ttl 2>&1)
 
 if [ $? -eq 0 ];then
-  echo $OUTPUT > /d2rq-data/results/dump.nt
+  echo $OUTPUT > /var/www/results/results/dump.nt
   echo "RDF dump created."
 else
   echo "Error: $OUTPUT"
