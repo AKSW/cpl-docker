@@ -8,8 +8,6 @@ if [ "$#" -eq 1 ] ; then
 	BASE=$1
 fi
 
-echo $BASE
-
 OUTPUT=$(/d2rq/dump-rdf -b ${BASE} -o ${OUTFILE} ${MAPPING} 2>&1)
 
 if [ $? -eq 0 ];then
