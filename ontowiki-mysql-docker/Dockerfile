@@ -31,8 +31,8 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enabled/
 
 # overwrite php upload/post
-RUN echo "upload_max_filesize = 512" >> /etc/php5/fpm/php.ini
-RUN echo "post_max_size = 512" >> /etc/php5/fpm/php.ini
+RUN echo "upload_max_filesize = 512M" >> /etc/php5/fpm/php.ini
+RUN echo "post_max_size = 512M" >> /etc/php5/fpm/php.ini
 
 # Add startscript and start
 ADD start.sh /start.sh
