@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# change this line to rewrite docker-cache - 0
+# change this line to rewrite docker-cache - 1
 
 # execute config script
 # chmod +x /config/config-run.sh
@@ -9,12 +9,13 @@
 CONFFILE=/var/www/ontowiki/config.ini
 
 # set database to ZendDB (mysql) in ontowikis config.ini
-sed -i "s/\(store.backend\s*\)= virtuoso$/\1= zenddb/" ${CONFFILE}
-sed -i "s/\(store.zenddb.dbname\s*\)= \"ontowiki\"$/\1= \"${STORE_ENV_MYSQL_DATABASE}\"/" ${CONFFILE}
-sed -i "s/\(store.zenddb.username\s*\)= \"php\"$/\1= \"${STORE_ENV_MYSQL_USER}\"/" ${CONFFILE}
-sed -i "s/\(store.zenddb.password\s*\)= \"php\"$/\1= \"${STORE_ENV_MYSQL_PASSWORD}\"/" ${CONFFILE}
-sed -i "s/\(store.zenddb.host\s*\)= localhost$/\1= ${STORE_PORT_3306_TCP_ADDR}/" ${CONFFILE}
+sed -i "s/\(store.backend\s*\)=.*/\1= zenddb/" ${CONFFILE}
+sed -i "s/\(store.zenddb.dbname\s*\)=.*/\1= \"${STORE_ENV_MYSQL_DATABASE}\"/" ${CONFFILE}
+sed -i "s/\(store.zenddb.username\s*\)=.*/\1= \"${STORE_ENV_MYSQL_USER}\"/" ${CONFFILE}
+sed -i "s/\(store.zenddb.password\s*\)=.*/\1= \"${STORE_ENV_MYSQL_PASSWORD}\"/" ${CONFFILE}
+sed -i "s/\(store.zenddb.host\s*\)=.*/\1= ${STORE_PORT_3306_TCP_ADDR}/" ${CONFFILE}
 
+# create odbc driver file
 touch /etc/odbc.ini
 
 echo "[Default]" >> /etc/odbc.ini
