@@ -2,10 +2,9 @@
   unset($_SESSION["message_output"]);
   unset($_SESSION["mapping_text"]);
 
-  if(isset($_POST["mapping_file"]))
-    call_user_func("save");
-  else if(isset($_GET['runFunction']) && function_exists($_GET['runFunction']))
-  	call_user_func($_GET['runFunction']);
+  if(isset($_POST['runFunction']) && function_exists($_POST['runFunction'])) {
+  	call_user_func($_POST['runFunction']);
+  }
 
   function map () {
   	$message = shell_exec("/var/www/scripts/map.sh");
@@ -14,7 +13,13 @@
   }
 
   function dump () {
-  $message = shell_exec("/var/www/scripts/dump.sh");
+    $baseruri = $_POST["baseruri"];
+    if ( empty($baseruri) ) {
+      $message = shell_exec("/var/www/scripts/dump.sh"); 
+    } else {
+      $message = shell_exec("/var/www/scripts/dump.sh $baseruri"); 
+    }
+    $message = shell_exec("/var/www/scripts/dump.sh $baseruri"); 
   	$_SESSION["message_output"] = $message;
   }
 
@@ -37,6 +42,9 @@
     <link rel="stylesheet" href="./css/custom.css">
   </head>
   <body>
+
+    <form action="index.php" method="post" id="save_form">  
+
     <div class="row">
       <div class="col-md-offset-3 col-md-6 col-md-offset-3">
         <div class="row">
@@ -45,11 +53,11 @@
         <br/>
         <div class="row">
           <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" onClick="self.location='index.php?runFunction=map'">Create Mapping</button>
+            <button type="button" class="btn btn-default" name="runFunction" value="map">Create Mapping</button>
             <span class="btn btn-default btn-file">
             Load Mapping File <input type="file" id="fileinput"/>
             </span>
-            <button type="button" class="btn btn-default" onClick="self.location='index.php?runFunction=dump'">Create Dump</button>
+            <button type="submit" class="btn btn-default" name="runFunction" value="dump">Create Dump</button>
           </div>
         </div>
       </div>
@@ -57,21 +65,24 @@
     <br />
     <div class="row">
       <h1>Edit Mapping File</h1>
-      <form action="index.php" method="post" id="save_form">
-      </form>
+      
+            
+      <input type="text" id="baseuri" name="baseruri" class="col-md-offset-1 col-md-5 input-sm" placeholder="Baseuri..." value="<?php if (isset($_POST['baseruri'])) echo $_POST['baseruri']; ?>"><br /><br/>
       <textarea name="mapping_file" form="save_form" class="col-md-offset-1 col-md-10 col-md-offset-1" id="textarea"><?php
-        if (isset($_SESSION["mapping_text"]))
-          echo $_SESSION["mapping_text"]
+        if (isset($_POST["mapping_file"]))
+          echo $_POST["mapping_file"]
         ?></textarea>
     </div>
     <br />
     <div class="row">
       <div class="col-md-offset-3 col-md-6 col-md-offset-3">
         <div class="btn-group" role="group" aria-label="...">
-          <button id ="save_button" type="submit" form="save_form" class="btn btn-default">Save Mapping File</button>
+          <button id ="save_button" type="submit" form="save_form" class="btn btn-default" name="runFunction" value="save">Save Mapping File</button>
         </div>
       </div>
     </div>
+
+    </form>
     <script type='text/javascript' src="./js/behave.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->

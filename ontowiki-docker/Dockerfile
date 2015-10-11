@@ -24,7 +24,7 @@ RUN dpkg -i libvirtodbc0_7.2_amd64.deb
 RUN rm -rf /var/www/*
 
 # clone ontowiki and get its dependencies
-RUN git clone https://github.com/AKSW/cpl-ontowiki.git -b develop /var/www/ontowiki/
+RUN git clone https://github.com/AKSW/OntoWiki.git -b develop /var/www/ontowiki/
 RUN cd /var/www/ontowiki/ && make deploy
 RUN cp /var/www/ontowiki/config.ini.dist /var/www/ontowiki/config.ini
 
