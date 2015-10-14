@@ -2,11 +2,11 @@
 
 # change this line to rewrite docker-cache - 0
 
+CONFFILE=/var/www/config.ini
+
 # execute config script
 chmod +x /config/config-run.sh
 /config/config-run.sh
-
-CONFFILE=/var/www/ontowiki/config.ini
 
 # set Virtuoso password in ontowikis config.ini
 sed -i "s/\(store.virtuoso.password\s*\)= \"dba\"$/\1= \"${STORE_ENV_PWDDBA}\"/" ${CONFFILE}
@@ -24,7 +24,7 @@ cat /ow-docker.fig
 echo ""
 echo "following log:"
 
-OWLOG="/var/www/ontowiki/logs/ontowiki.log"
+OWLOG="/var/www/logs/ontowiki.log"
 touch $OWLOG
 chmod a+w $OWLOG
 tail -f $OWLOG

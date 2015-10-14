@@ -6,7 +6,7 @@ MAINTAINER Natanael Arndt <arndt@informatik.uni-leipzig.de>
 ENV DEBIAN_FRONTEND noninteractive
 
 # update package index
-RUN apt-get update
+RUN apt-get clean && apt-get update
 
 # install some basic packages
 # install the nginx server with PHP
@@ -24,9 +24,10 @@ RUN dpkg -i libvirtodbc0_7.2_amd64.deb
 RUN rm -rf /var/www/*
 
 # clone ontowiki and get its dependencies
-RUN git clone https://github.com/AKSW/cpl-ontowiki.git -b develop /var/www/ontowiki/
-RUN cd /var/www/ontowiki/ && make deploy
-RUN cp /var/www/ontowiki/config.ini.dist /var/www/ontowiki/config.ini
+# RUN git clone https://github.com/AKSW/OntoWiki.git /var/www/
+RUN git clone https://github.com/AKSW/cpl-ontowiki.git -b develop /var/www/
+RUN cd /var/www/ && make deploy
+RUN cp /var/www/config.ini.dist /var/www/config.ini
 
 # configure the ontowiki site for nginx
 ADD ontowiki-nginx.conf /etc/nginx/sites-available/
@@ -37,14 +38,14 @@ RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enable
 ADD odbc.ini /etc/
 
 # overwrite php upload/post
-RUN echo "upload_max_filesize = 512" >> /etc/php5/fpm/php.ini
-RUN echo "post_max_size = 512" >> /etc/php5/fpm/php.ini
+RUN echo "upload_max_filesize = 512M" >> /etc/php5/fpm/php.ini
+RUN echo "post_max_size = 512M" >> /etc/php5/fpm/php.ini
 
 # Add startscript and start
 ADD start.sh /start.sh
 ADD ow-docker.fig /ow-docker.fig
 
-VOLUME /var/www/ontowiki/logs
+VOLUME /var/www/logs
 
 CMD ["/bin/bash", "/start.sh"]
 
