@@ -1,6 +1,8 @@
 #!/bin/sh
 
-OUTPUT=$($1 > /var/www/results/results/mapping.ttl 2>&1)
+MAPPING_FILE=/var/www/results/results/mapping.ttl
+
+OUTPUT=$(echo $1 > $MAPPING_FILE 2>&1)
 
 if [ $? -eq 0 ];then
 
