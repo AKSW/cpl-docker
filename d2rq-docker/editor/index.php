@@ -7,7 +7,12 @@
   }
 
   function map () {
-  	$message = shell_exec("/var/www/scripts/map.sh");
+    $dbName = $_POST["db_name"];
+
+    if (empty($dbName))
+      $dbName = "default";
+
+  	$message = shell_exec("/var/www/scripts/map.sh $dbName");
   	$_SESSION["message_output"] = $message;
     $_SESSION["mapping_text"] = shell_exec("/var/www/scripts/echo_mapping.sh");
   }
@@ -15,11 +20,11 @@
   function dump () {
     $baseruri = $_POST["baseruri"];
     if ( empty($baseruri) ) {
-      $message = shell_exec("/var/www/scripts/dump.sh"); 
+      $message = shell_exec("/var/www/scripts/dump.sh");
     } else {
-      $message = shell_exec("/var/www/scripts/dump.sh $baseruri"); 
+      $message = shell_exec("/var/www/scripts/dump.sh $baseruri");
     }
-    $message = shell_exec("/var/www/scripts/dump.sh $baseruri"); 
+    $message = shell_exec("/var/www/scripts/dump.sh $baseruri");
   	$_SESSION["message_output"] = $message;
   }
 
@@ -42,8 +47,9 @@
     <link rel="stylesheet" href="./css/custom.css">
   </head>
   <body>
+    <h1>Edit Mapping File</h1>
 
-    <form action="index.php" method="post" id="save_form">  
+    <form action="index.php" method="post" id="save_form">
 
     <div class="row">
       <div class="col-md-offset-3 col-md-6 col-md-offset-3">
@@ -53,7 +59,7 @@
         <br/>
         <div class="row">
           <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" name="runFunction" value="map">Create Mapping</button>
+            <button type="submit" class="btn btn-default" name="runFunction" value="map">Create Mapping</button>
             <span class="btn btn-default btn-file">
             Load Mapping File <input type="file" id="fileinput"/>
             </span>
@@ -64,10 +70,11 @@
     </div>
     <br />
     <div class="row">
-      <h1>Edit Mapping File</h1>
-      
-            
-      <input type="text" id="baseuri" name="baseruri" class="col-md-offset-1 col-md-5 input-sm" placeholder="Baseuri..." value="<?php if (isset($_POST['baseruri'])) echo $_POST['baseruri']; ?>"><br /><br/>
+      <br/>
+      <input type="text" id="db_name" name="db_name" class="col-md-offset-3 col-md-6 col-md-offset-3" placeholder="Enter database name" value="<?php if (isset($_POST['db_name'])) echo $_POST['db_name']; ?>">
+      <br/><br/>
+      <input type="text" id="baseuri" name="baseruri" class="col-md-offset-3 col-md-6 col-md-offset-3" placeholder="Enter a base URI" value="<?php if (isset($_POST['baseruri'])) echo $_POST['baseruri']; ?>"><br /><br/>
+      <br/>
       <textarea name="mapping_file" form="save_form" class="col-md-offset-1 col-md-10 col-md-offset-1" id="textarea"><?php
         if (isset($_POST["mapping_file"]))
           echo $_POST["mapping_file"]
