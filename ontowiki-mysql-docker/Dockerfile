@@ -30,9 +30,10 @@ ADD ontowiki-nginx.conf /etc/nginx/sites-available/
 RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /etc/nginx/sites-available/ontowiki-nginx.conf /etc/nginx/sites-enabled/
 
-# overwrite php upload/post
+# set php upload/post size and timeout (esp. for import)
 RUN echo "upload_max_filesize = 512M" >> /etc/php5/fpm/php.ini
 RUN echo "post_max_size = 512M" >> /etc/php5/fpm/php.ini
+RUN echo "default_socket_timeout = 300" >> /etc/php5/fpm/php.ini
 
 # Add startscript and start
 ADD start.sh /start.sh
