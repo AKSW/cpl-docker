@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-MAINTAINER Natanael Arndt <arndt@informatik.uni-leipzig.de>
+MAINTAINER Simeon Ackermann <amseon@web.de>
 
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
