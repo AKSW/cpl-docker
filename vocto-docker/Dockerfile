@@ -1,35 +1,21 @@
-FROM debian:jessie
+FROM richarvey/nginx-php-fpm:latest
 
 MAINTAINER Simeon Ackermann <amseon@web.de>
 
-# Let the conatiner know that there is no tty
-ENV DEBIAN_FRONTEND noninteractive
+# html root directory
+ENV WEBROOT /var/www/vocto
 
-# update package index
-RUN apt-get update
-
-# install some basic packages
-# install the nginx server with PHP
-RUN apt-get install -y \
-    git make curl \
-    nginx-light \
-    php5 php5-fpm php5-common php5-cli php5-curl
-
-RUN rm -rf /var/www/*
+WORKDIR ${WEBROOT}
 
 # clone and update vocto
-RUN git clone https://github.com/simeonackermann/VocTo.git /var/www/vocto/
-RUN cd /var/www/vocto/ && git pull
+RUN git clone https://github.com/simeonackermann/VocTo.git ${WEBROOT}
 
-# configure vocto for nginx (add php-fpm)
-ADD vocto-nginx.conf /etc/nginx/sites-available/
-RUN rm /etc/nginx/sites-enabled/default
-RUN ln -s /etc/nginx/sites-available/vocto-nginx.conf /etc/nginx/sites-enabled/
+# make vocto datadir writeable
+RUN chown -R nginx:nginx /var/www/vocto/data
 
-# Add startscript and start
-ADD start.sh /start.sh
-
-CMD ["/bin/bash", "/start.sh"]
+# execute startscript of baseimage
+RUN chmod +x /start.sh
+CMD ["/start.sh"]
 
 # expose the HTTP port to the outer world
 EXPOSE 80

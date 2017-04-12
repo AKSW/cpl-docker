@@ -1,13 +1,18 @@
 # VocTo Docker Container
 
-This container provided [VocTo](http://asimeon.de/vocto/) ([@github](https://github.com/simeonackermann/VocTo)) in a container.
+This container provides [VocTo](https://github.com/simeonackermann/VocTo)) in a container.
 
 ## Usage instructions
 
 Build the container:
 
-	docker build -t vocto
+	docker build -t vocto .
 
 Run it:
 
-	docker run -p 8081:80 vocto
+	docker run -p 80:80 vocto
+
+
+and use it with your webbrowser:
+
+    http://localhost:80
